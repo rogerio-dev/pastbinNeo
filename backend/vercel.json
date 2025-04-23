@@ -1,9 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" }
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
   ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" }
-  ]
+  "env": {
+    "DB_HOST": "aws-0-sa-east-1.pooler.supabase.com",
+    "DB_USER": "postgres.dmqvicxyqdufarwyuptn",
+    "DB_PASSWORD": "aaUJ6O5Ebt7V7xZE",
+    "DB_NAME": "postgres",
+    "FRONTEND_URL": "https://seu-frontend.vercel.app"
+  }
 }
+
