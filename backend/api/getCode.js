@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
   if (req.method === "GET") {
     const { id } = req.query; // Use `req.query` em vez de `req.params` na Vercel
     try {
-      const [rows] = await db.query("SELECT code FROM shared_codes WHERE id = ?", [id]);
+      const [rows] = await db.query("SELECT code FROM hml_pastbinneo.shared_codes WHERE id = ?", [id]);
       if (rows.length === 0) {
         return res.status(404).json({ error: "Código não encontrado" });
       }

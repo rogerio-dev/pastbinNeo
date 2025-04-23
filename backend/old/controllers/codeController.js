@@ -4,7 +4,7 @@ const db = require("../../src/models/db");
 exports.saveCode = async (req, res) => {
   const { code } = req.body;
   try {
-    const [result] = await db.query("INSERT INTO shared_codes (code) VALUES (?)", [code]);
+    const [result] = await db.query("INSERT INTO hml_pastbinneo.shared_codes (code) VALUES (?)", [code]);
     const id = result.insertId;
     const link = `${process.env.FRONTEND_URL}/code/${id}`; // Gera o link para o frontend
     res.json({ link });
@@ -18,7 +18,7 @@ exports.saveCode = async (req, res) => {
 exports.getCode = async (req, res) => {
     const { id } = req.params;
     try {
-      const [rows] = await db.query("SELECT code FROM shared_codes WHERE id = ?", [id]);
+      const [rows] = await db.query("SELECT code FROM hml_pastbinneo.shared_codes WHERE id = ?", [id]);
       if (rows.length === 0) {
         return res.status(404).json({ error: "Código não encontrado" });
       }

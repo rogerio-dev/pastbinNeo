@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
   if (req.method === "POST") {
     const { code } = req.body;
     try {
-      const [result] = await db.query("INSERT INTO shared_codes (code) VALUES (?)", [code]);
+      const [result] = await db.query("INSERT INTO hml_pastbinneo.shared_codes (code) VALUES (?)", [code]);
       const id = result.insertId;
       const link = `${process.env.FRONTEND_URL}/code/${id}`;
       res.json({ link });

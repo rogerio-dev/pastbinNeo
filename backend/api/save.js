@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     const { code } = req.body;
 
     try {
-      const [result] = await db.query("INSERT INTO shared_codes (code) VALUES (?)", [code]);
+      const [result] = await db.query("INSERT INTO hml_pastbinneo.shared_codes (code) VALUES (?)", [code]);
       const id = result.insertId;
       const link = `${process.env.FRONTEND_URL}/code/${id}`;
       res.status(200).json({ link });
