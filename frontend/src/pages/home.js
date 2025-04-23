@@ -7,7 +7,7 @@ const Home = () => {
   // Função para enviar o código ao backend e gerar o link
   const handleGenerateLink = async () => {
     try {
-      const response = await fetch(`${URL_BACKEND}/saveCode`, {
+      const response = await fetch(`${URL_BACKEND}/save`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code }), // Envia o código no corpo da requisição
