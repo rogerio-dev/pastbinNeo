@@ -1,8 +1,16 @@
 const db = require("../models/db");
 
+const allowedOrigins = [
+  'https://pastbin-neo.vercel.app',
+  'https://pastbin-neo-backend.vercel.app',
+  'http://localhost:3000'
+];
+
 module.exports = async (req, res) => {
-  // Adicione estes headers:
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -12,7 +20,6 @@ module.exports = async (req, res) => {
     return;
   }
 
-  // Sua lógica original:
   if (req.method === "POST") {
     const { code } = req.body;
     try {
