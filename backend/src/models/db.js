@@ -1,5 +1,4 @@
 const mysql = require("mysql2");
-require("dotenv").config(); // Carrega as variáveis do arquivo .env
 
 
 // console.log("DB_HOST:", process.env.DB_HOST);

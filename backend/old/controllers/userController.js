@@ -1,4 +1,4 @@
-const db = require("../models/db");
+const db = require("../../src/models/db");
 
 // Listar usuários
 exports.getUsers = async (req, res) => {

@@ -1,4 +1,4 @@
-const db = require("../models/db");
+const db = require("../../src/models/db");
 
 // Salvar código no banco  
 exports.saveCode = async (req, res) => {
