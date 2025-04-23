@@ -8,6 +8,11 @@ const db = mysql.createPool({
 });
 
 export default async function handler(req, res) {
+
+    res.setHeader("Access-Control-Allow-Origin", "https://pastbin-neo.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    
   if (req.method === "POST") {
     const { code } = req.body;
 
