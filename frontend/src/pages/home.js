@@ -3,11 +3,11 @@ import React, { useState } from "react";
 const Home = () => {
   const [code, setCode] = useState(""); // Estado para armazenar o código digitado pelo usuário
   const [shareLink, setShareLink] = useState(""); // Estado para armazenar o link gerado
-
+  const URL_BACKEND = 'https://pastbin-neo-backend.vercel.app/api'; // URL do backend
   // Função para enviar o código ao backend e gerar o link
   const handleGenerateLink = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/save`, {
+      const response = await fetch(`${URL_BACKEND}/saveCode`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code }), // Envia o código no corpo da requisição

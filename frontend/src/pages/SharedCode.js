@@ -6,11 +6,12 @@ const SharedCode = () => {
   const [code, setCode] = useState(""); // Estado para armazenar o código
   const [loading, setLoading] = useState(true); // Estado para indicar carregamento
   const [error, setError] = useState(null); // Estado para armazenar erros
+  const URL_BACKEND = 'https://pastbin-neo-backend.vercel.app/api'; // URL do backend
 
   useEffect(() => {
     const fetchCode = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/code/${id}`);
+        const response = await fetch(`${URL_BACKEND}/getCode/${id}`);
         if (!response.ok) {
           throw new Error("Código não encontrado"); // Lança erro se o código não for encontrado
         }
