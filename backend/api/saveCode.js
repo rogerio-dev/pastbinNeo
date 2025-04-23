@@ -1,6 +1,12 @@
 const db = require("../models/db");
 
 module.exports = async (req, res) => {
+
+  // Permite qualquer origem (ou especifique a sua)  
+  res.setHeader('Access-Control-Allow-Origin', 'https://pastbin-neo.vercel.app');  
+  res.setHeader('Access-Control-Allow-Methods', 'POST');  
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
   if (req.method === "POST") {
     const { code } = req.body;
     try {
