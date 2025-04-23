@@ -8,11 +8,17 @@ const db = mysql.createPool({
 });
 
 export default async function handler(req, res) {
+  // Configuração de CORS
+  res.setHeader("Access-Control-Allow-Origin", "https://pastbin-neo.vercel.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-    res.setHeader("Access-Control-Allow-Origin", "https://pastbin-neo.vercel.app");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    
+  // Lidar com requisições preflight (OPTIONS)
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method === "POST") {
     const { code } = req.body;
 
