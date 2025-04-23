@@ -15,10 +15,11 @@ export default async function handler(req, res) {
 
   // Lidar com requisições preflight (OPTIONS)
   if (req.method === "OPTIONS") {
-    res.status(200).end();
+    res.status(200).end(); // Responde com sucesso para requisições preflight
     return;
   }
 
+  // Lógica para requisições POST
   if (req.method === "POST") {
     const { code } = req.body;
 

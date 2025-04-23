@@ -11,7 +11,7 @@
     "DB_USER": "postgres.dmqvicxyqdufarwyuptn",
     "DB_PASSWORD": "aaUJ6O5Ebt7V7xZE",
     "DB_NAME": "postgres",
-    "FRONTEND_URL": "https://seu-frontend.vercel.app"
+    "FRONTEND_URL": "https://pastbin-neo.vercel.app"
   }
 }
 
